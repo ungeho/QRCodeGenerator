@@ -1,12 +1,12 @@
 # QRコードの画像生成  
   
-`py QRCodeGenerate.py`  
+`py qrcodeGenerate.py`  
   
 画像は`qrcodes`フォルダに生成される。  
   
 # 生成したQRコードの画像をpdfにまとめる  
   
-`py LatexGenerate.py`  
+`py pdfGenerate.py`  
   
 latexが使える環境が必要。  
   
