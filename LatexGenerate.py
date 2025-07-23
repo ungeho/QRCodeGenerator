@@ -4,6 +4,8 @@ import shutil
 from datetime import datetime
 import math
 
+
+
 # --- ユーザーにレイアウト設定を選ばせる ---
 print("画像の配置方法を選んでください：")
 print("1: 自動カラム調整")
@@ -37,6 +39,13 @@ tex_filename = "qrcode_images.tex"
 pdf_filename = "qrcode_images.pdf"
 max_columns = 4
 images_per_page = 12
+
+# latex フォルダを削除（存在する場合のみ）
+if os.path.exists(output_dir):
+    shutil.rmtree(output_dir)
+    print(f"一時フォルダ'{output_dir}'を削除しました。")
+
+
 
 # --- LaTeX用に特殊文字を安全に変換（_ と % は削除） ---
 def escape_latex_caption(text):
@@ -164,8 +173,8 @@ try:
         print(f"PDFファイルを '{dst_pdf}' に移動しました。")
 
         # latex フォルダを削除
-        shutil.rmtree(output_dir)
-        print(f"一時フォルダ '{output_dir}' を削除しました。")
+        # shutil.rmtree(output_dir)
+        # print(f"一時フォルダ '{output_dir}' を削除しました。")
 
 except FileNotFoundError:
     print("pdflatex が見つかりません。TeX Live または MiKTeX のインストールとパス設定を確認してください。")
